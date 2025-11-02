@@ -10,8 +10,9 @@ void main() {
 
 const fragmentShaderSrc = `
 precision mediump float;
+uniform vec4 u_color;
 void main() {
-  gl_FragColor = vec4(0.9, 0.1, 0.4, 1.0);
+  gl_FragColor = u_color;
 }
 `;
 

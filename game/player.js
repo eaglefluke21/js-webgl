@@ -12,10 +12,15 @@ export class Player {
   update(input) {
     if (input.left) this.x -= this.speed;
     if (input.right) this.x += this.speed;
+    if (input.up) this.y += this.speed;
+    if (input.down) this.y -= this.speed;
 
     // limit side movement
-    if (this.x < -1.5) this.x = -1.5;
-    if (this.x >  1.5) this.x =  1.5;
+    if (this.x < -1.7) this.x = -1.7;
+    if (this.x >  1.7) this.x =  1.7;
+
+    if(this.y < -1.7) this.y = -1.7;
+    if(this.y > 1.7) this.y = 1.7;
   }
 
   getModelMatrix() {

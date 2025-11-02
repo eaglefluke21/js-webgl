@@ -39,6 +39,7 @@ export function mat4RotateY(angle) {
 
 export function mat4Perspective(fovRad, aspect, near, far) {
   const f = 1 / Math.tan(fovRad / 2);
+  console.log(`favRad: ${fovRad}`);
   const nf = 1 / (near - far);
   return [
     f/aspect, 0, 0, 0,

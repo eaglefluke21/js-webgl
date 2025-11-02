@@ -1,11 +1,10 @@
 import { Obstacle } from './obstacle.js';
-import { mat4Translate } from '../engine/math.js';
 
 export class World {
   constructor() {
     this.obstacles = [];
     this.spawnTimer = 0;
-    this.spawnRate = 60; // frames
+    this.spawnRate =60; // frames
   }
 
   update() {
