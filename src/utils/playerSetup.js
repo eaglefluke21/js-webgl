@@ -1,23 +1,26 @@
-import k from "../KaplayCtx";
+// src/utils/playerSetup.js
+import k from "../KaplayCtx.js";
 
 export default function setupPlayer(groundY) {
+  // Use rect(w, h) and area() for a proper collision box. Offset the rect if needed.
+  k.setGravity(1000);
   const player = k.add([
     k.sprite("player_idle"),
-    k.pos(200, groundY - 100),
+    k.pos(200, groundY - 135),
     k.area({ shape: new k.Rect(k.vec2(28, 20), 44, 44) }),
     k.body(),
     k.scale(2),
     k.offscreen(),
   ]);
 
-  player.play("run");
+  // play run animation if present
+  if (typeof player.play === "function") {
+    player.play("run");
+  }
 
-  k.onKeyPress("space", () => {
-    if (player.isGrounded()) {
-      player.jump(600); // Increased jump height
-      k.play("jump"); // Play jump sound
-    }
-  });
+k.onButtonPress("jump", () => {
+  if (player.isGrounded()) player.jump(600);
+});
 
   player.onExitScreen(() => {
     k.go("gameover");
